@@ -1,0 +1,16 @@
+###
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "title": "Tea",
+  "price": 130
+}
+
+###
+
+DELETE http://localhost:8080/products/8
+
+###
+PUT http://localhost:8080/products/4?price=50
+Content-Type: application/json
