@@ -1,3 +1,5 @@
+drop table if exists products;
+
 CREATE TABLE products (
     id serial,
     title varchar(100),

@@ -1,8 +1,12 @@
-package com.dragulaxis.demo.product;
+package com.dragulaxis.demo.controller;
 
+import com.dragulaxis.demo.entity.Product;
+import com.dragulaxis.demo.service.ProductService;
+import com.dragulaxis.demo.entity.ProductSpecifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -53,6 +57,7 @@ public class ProductController {
         return "product-page";
     }
 
+    //TODO: get запрос не должен менять состояние данных (1)
     @GetMapping("/edit/{id}")
     public String editProduct(Model model, @PathVariable("id") Long id) {
         Product product = productService.findById(id);
@@ -66,12 +71,14 @@ public class ProductController {
         return "redirect:/products";
     }
 
+    //TODO: get запрос не должен менять состояние данных (2)
     @GetMapping(path = "/delete/{id}")
     public String deleteProduct(@PathVariable("id") Long productId) {
         productService.deleteById(productId);
         return "redirect:/products";
     }
 
+    //TODO: get запрос не должен менять состояние данных (3)
     @GetMapping("/add")
     public String openAddProductForm(Model model) {
         Product product = new Product();

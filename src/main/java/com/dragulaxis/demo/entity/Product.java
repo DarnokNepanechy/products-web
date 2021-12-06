@@ -1,4 +1,4 @@
-package com.dragulaxis.demo.product;
+package com.dragulaxis.demo.entity;
 
 import javax.persistence.*;
 

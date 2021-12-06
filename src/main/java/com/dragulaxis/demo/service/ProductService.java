@@ -1,5 +1,7 @@
-package com.dragulaxis.demo.product;
+package com.dragulaxis.demo.service;
 
+import com.dragulaxis.demo.entity.Product;
+import com.dragulaxis.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

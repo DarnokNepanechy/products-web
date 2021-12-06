@@ -1,5 +1,6 @@
-package com.dragulaxis.demo.product;
+package com.dragulaxis.demo.entity;
 
+import com.dragulaxis.demo.entity.Product;
 import org.springframework.data.jpa.domain.Specification;
 
 public class ProductSpecifications {
