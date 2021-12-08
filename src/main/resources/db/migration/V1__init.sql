@@ -3,7 +3,8 @@ drop table if exists products;
 CREATE TABLE products (
     id serial,
     title varchar(100),
-    price int
+    price int,
+    views int default (0)
                       );
 
 insert into products(title, price)

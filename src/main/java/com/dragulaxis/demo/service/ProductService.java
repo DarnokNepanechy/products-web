@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
 
@@ -32,5 +34,14 @@ public class ProductService {
 
     public Page<Product> getProductWithPaginationAndFiltration(Specification<Product> specifications, Pageable pageable) {
         return productRepository.findAll(specifications, pageable);
+    }
+
+    public Product incrementViewsCounter(Product product) {
+        product.setViews(product.getViews() + 1);
+        return productRepository.save(product);
+    }
+
+    public List<Product> getTopViewsProducts() {
+        return productRepository.getAllProductsOrderByViewsDesc();
     }
 }

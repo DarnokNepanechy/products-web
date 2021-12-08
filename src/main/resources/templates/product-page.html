@@ -17,6 +17,7 @@
             <th>ID</th>
             <th>Название товара</th>
             <th>Цена</th>
+            <th>Просмотры</th>
         </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
             <td th:text="${product.id}"/>
             <td th:text="${product.title}"/>
             <td th:text="${product.price}"/>
+            <td th:text="${product.views}"/>
         </tr>
         </tbody>
     </table>

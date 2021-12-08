@@ -6,7 +6,6 @@ import com.dragulaxis.demo.entity.ProductSpecifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -53,6 +52,7 @@ public class ProductController {
     @GetMapping("/show/{id}")
     public String showOneProduct(Model model, @PathVariable("id") Long id) {
         Product product = productService.findById(id);
+        product = productService.incrementViewsCounter(product);
         model.addAttribute("product", product);
         return "product-page";
     }
@@ -84,5 +84,17 @@ public class ProductController {
         Product product = new Product();
         model.addAttribute("product", product);
         return "product-edit";
+    }
+
+    @GetMapping("/{id}")
+    @ResponseBody
+    public Product getProductById(@PathVariable("id") Long id) {
+        return productService.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    public void deleteProductById(@PathVariable("id") Long id) {
+        productService.deleteById(id);
     }
 }

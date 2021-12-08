@@ -35,7 +35,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     //Доступ только для пользователей с ролью Администратор
                     .antMatchers("/products/edit/**", "/products/edit/add", "/products/edit/add/**", "/products/delete/**").hasRole("ADMIN")
                 //Все остальные страницы требуют аутентификации
-                .anyRequest().authenticated()
+                    .anyRequest()
+                        .authenticated()
                 .and()
                 //Настройка для входа в систему
                 .formLogin()

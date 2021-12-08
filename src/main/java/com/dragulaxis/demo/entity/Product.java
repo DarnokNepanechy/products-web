@@ -13,6 +13,8 @@ public class Product {
     private String title;
     @Column(name = "price")
     private Integer price;
+    @Column(name = "views")
+    private int views;
 
     public Product() {
     }
@@ -22,10 +24,11 @@ public class Product {
         this.price = price;
     }
 
-    public Product(Long id, String title, Integer price) {
+    public Product(Long id, String title, Integer price, int views) {
         this.id = id;
         this.title = title;
         this.price = price;
+        this.views = views;
     }
 
     public Long getId() {
@@ -50,6 +53,14 @@ public class Product {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
     }
 
     @Override

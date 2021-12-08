@@ -11,6 +11,23 @@
 <body>
 <div class="container">
 
+<!--    <form class="form-signin" method="post" action="/login">-->
+<!--        <div style="margin-bottom: 25px" class="input-group">-->
+
+<!--            <label for="username" class="sr-only">Username</label>-->
+<!--            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="">-->
+
+<!--            <label for="password" class="sr-only">Password</label>-->
+<!--            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">-->
+
+<!--            <label  for="remember-me" class="sr-only">Remember me</label>-->
+<!--            <input type="checkbox" id="remember-me" name="remember-me" class="form-control">-->
+
+<!--            <button class="btn btn-lg btn-primary" type="submit">Войти</button>-->
+
+<!--        </div>-->
+<!--    </form>-->
+
     <form th:action="@{/products}" method="get" class="form-horizontal">
 
         <div style="margin-bottom: 25px" class="input-group">
@@ -36,9 +53,9 @@
         </thead>
         <tbody>
         <tr th:each="product : ${products}">
-            <td th:text="${product.id}"/>
-            <td th:text="${product.title}"/>
-            <td th:text="${product.price}"/>
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.title}"></td>
+            <td th:text="${product.price}"></td>
             <td>
                 <a th:href="@{'/products/show/' + ${product.id}}" th:text="Просмотреть"/>
             </td>
@@ -52,8 +69,9 @@
         </tbody>
     </table>
 
-    <p><span th:text="${'Всего товаров ' + products.size()}"/></p>
-    <a th:href="@{/products/add}">Добавитсь товар</a>
+    <p><span th:text="${'Всего товаров ' + products.size()}"></span></p>
+    <p><a th:href="@{/products/add}">Добавитсь товар</a></p>
+    <p><a th:href="@{/logout}">Разлогинить себя</a></p>
 
 </div>
 </body>
