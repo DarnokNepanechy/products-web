@@ -53,9 +53,9 @@
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>8.1.0</version>
 				<configuration>
-					<url>jdbc:postgresql://localhost:5432/dragulaxisdb</url>
-					<user>dragulaxis</user>
-					<password>114418525</password>
+					<url>jdbc:postgresql://localhost:5432/postgres</url>
+					<user>postgres</user>
+					<password>postgres</password>
 				</configuration>
 			</plugin>
 		</plugins>
